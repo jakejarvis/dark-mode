@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:compat/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2015,
+    "sourceType": "module"
+  },
+  "rules": {}
+}

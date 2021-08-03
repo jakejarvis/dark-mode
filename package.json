@@ -1,0 +1,40 @@
+{
+  "name": "@jakejarvis/dark-mode",
+  "version": "0.1.0",
+  "description": "Super simple CSS theme switching with saved preferences and automatic OS setting detection",
+  "license": "MIT",
+  "author": {
+    "name": "Jake Jarvis",
+    "email": "jake@jarv.is",
+    "url": "https://jarv.is/"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakejarvis/dark-mode.git"
+  },
+  "exports": "./index.js",
+  "types": "./index.d.ts",
+  "node": "^12.20.0 || ^14.13.1 || >=16.0.0",
+  "scripts": {
+    "lint": "eslint **/*.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-compat": "^3.11.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.2"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "LICENSE"
+  ],
+  "keywords": [
+    "frontend",
+    "dark mode",
+    "css"
+  ]
+}
