@@ -1,8 +1,10 @@
 # 🌓 Dark mode switcheroo
 
-[![CI](https://github.com/jakejarvis/dark-mode.js/actions/workflows/ci.yml/badge.svg)](https://github.com/jakejarvis/dark-mode.js/actions/workflows/ci.yml) [![npm (scoped)](https://img.shields.io/npm/v/@jakejarvis/dark-mode)](https://www.npmjs.com/package/@jakejarvis/dark-mode)
+[![CI](https://github.com/jakejarvis/dark-mode.js/actions/workflows/ci.yml/badge.svg)](https://github.com/jakejarvis/dark-mode.js/actions/workflows/ci.yml)
+[![npm (scoped)](https://img.shields.io/npm/v/@jakejarvis/dark-mode)](https://www.npmjs.com/package/@jakejarvis/dark-mode)
+[![GitHub](https://img.shields.io/github/license/jakejarvis/dark-mode?color=violet)](LICENSE)
 
-Simple dark mode switching with saved preference via local storage & dynamic OS setting detection!
+Very simple CSS dark/light mode toggler with saved preference via local storage & dynamic OS setting detection. Only ~700 bytes gzipped!
 
 - [View the example.](https://jakejarvis.github.io/dark-mode-example/)
 - [Read the blog post.](https://jarv.is/notes/dark-mode/)
