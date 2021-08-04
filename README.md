@@ -4,7 +4,7 @@
 [![npm (scoped)](https://img.shields.io/npm/v/@jakejarvis/dark-mode)](https://www.npmjs.com/package/@jakejarvis/dark-mode)
 [![GitHub](https://img.shields.io/github/license/jakejarvis/dark-mode?color=violet)](LICENSE)
 
-Very simple CSS dark/light mode toggler with saved preference via local storage & dynamic OS setting detection. Only ~700 bytes gzipped!
+Very simple CSS dark/light mode toggler with saved preference via local storage & dynamic OS setting detection. Zero dependencies and only ~700 bytes gzipped!
 
 - [View the example.](https://jakejarvis.github.io/dark-mode-example/)
 - [Read the blog post.](https://jarv.is/notes/dark-mode/)
@@ -63,6 +63,11 @@ darkMode.init({
   storageKey: "dark_mode_pref",
 });
 ```
+
+## To-Do
+
+- [ ] Support more than two themes
+- [ ] Add callback function `onChange` (or `onToggle` etc.) passed in as an option
 
 ## License
 

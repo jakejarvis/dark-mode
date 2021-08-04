@@ -1,4 +1,4 @@
-const storageAvailable = require("storage-available");
+"use strict";
 
 const initializeDarkMode = function (options) {
   // { toggle, classes: { light, dark }, default, storageKey }
@@ -85,6 +85,20 @@ const initializeDarkMode = function (options) {
         activateTheme(dark, true);
       }
     });
+  }
+};
+
+// recommended method (by MDN) to detect localStorage availability:
+// https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#feature-detecting_localstorage
+const storageAvailable = function (type) {
+  try {
+    var storage = window[type];
+    var x = "__storage_test__";
+    storage.setItem(x, x);
+    storage.removeItem(x);
+    return true;
+  } catch (e) {
+    return false;
   }
 };
 

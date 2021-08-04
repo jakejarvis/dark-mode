@@ -19,9 +19,7 @@
     "lint": "eslint src/**/*.js",
     "prepublishOnly": "run-s lint build"
   },
-  "dependencies": {
-    "storage-available": "^1.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "copy-webpack-plugin": "^9.0.1",
     "eslint": "^7.32.0",
