@@ -9,9 +9,8 @@ const initializeDarkMode = function (options) {
 
   // check for preset `dark_mode_pref` preference in local storage
   const storageKey = options.storageKey || "dark_mode_pref";
-  const storageEnabled = storageAvailable("localStorage");
-  // eslint-disable-next-line prettier/prettier
-  const pref = storageEnabled ? localStorage.getItem(storageKey) : null;
+  const storageAvailable = isStorageAvailable();
+  const pref = storageAvailable ? localStorage.getItem(storageKey) : null;
 
   // change CSS via these <body> classes:
   const dark = options.classes ? options.classes.dark : "dark";
@@ -24,12 +23,12 @@ const initializeDarkMode = function (options) {
   let active = defaultTheme === dark;
 
   // receives a class name and switches <body> to it
-  const activateTheme = function (theme, remember = false) {
+  const activateTheme = function (theme, remember) {
     document.body.classList.remove(dark, light);
     document.body.classList.add(theme);
     active = theme === dark;
 
-    if (storageEnabled && remember) {
+    if (storageAvailable && !!remember) {
       localStorage.setItem(storageKey, theme);
     }
   };
@@ -90,9 +89,9 @@ const initializeDarkMode = function (options) {
 
 // recommended method (by MDN) to detect localStorage availability:
 // https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#feature-detecting_localstorage
-const storageAvailable = function (type) {
+const isStorageAvailable = function () {
   try {
-    var storage = window[type];
+    var storage = window["localStorage"];
     var x = "__storage_test__";
     storage.setItem(x, x);
     storage.removeItem(x);
