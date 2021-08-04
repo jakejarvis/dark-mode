@@ -1,27 +1,24 @@
 /*! Dark mode switcheroo | MIT License | jrvs.io/darkmode */
 
+import storageAvailable from "storage-available";
+
 export default function (options) {
   // { toggle, classes: { light, dark }, default, storageKey }
   options = options || {};
 
-  console.log(options);
-
   // use a specified element(s) to trigger swap when clicked
   const toggle = options.toggle || null;
 
-  console.log(toggle);
-
   // check for preset `dark_mode_pref` preference in local storage
   const storageKey = options.storageKey || "dark_mode_pref";
-  const pref = localStorage.getItem(storageKey);
+  const storageEnabled = storageAvailable("localStorage");
+  const pref = storageEnabled
+    ? localStorage.getItem(storageKey)
+    : null;
 
   // change CSS via these <body> classes:
-  let dark = "dark";
-  let light = "light";
-  if (options.classes) {
-    dark = options.classes.dark;
-    light = options.classes.light;
-  }
+  const dark = options.classes ? options.classes.dark : "dark";
+  const light = options.classes ? options.classes.light : "light";
 
   // which class is <body> set to initially?
   const defaultTheme = options.default || "light";
@@ -30,10 +27,14 @@ export default function (options) {
   let active = defaultTheme === dark;
 
   // receives a class name and switches <body> to it
-  const activateTheme = function (theme) {
+  const activateTheme = function (theme, save = false) {
     document.body.classList.remove(dark, light);
     document.body.classList.add(theme);
     active = theme === dark;
+
+    if (storageEnabled && save) {
+      localStorage.setItem(storageKey, theme);
+    }
   };
 
   // user has never clicked the button, so go by their OS preference until/if they do so
@@ -86,11 +87,9 @@ export default function (options) {
     toggle.addEventListener("click", function () {
       // switch to the opposite theme & save preference in local storage
       if (active) {
-        activateTheme(light);
-        localStorage.setItem(storageKey, light);
+        activateTheme(light, true);
       } else {
-        activateTheme(dark);
-        localStorage.setItem(storageKey, dark);
+        activateTheme(dark, true);
       }
     });
   }
