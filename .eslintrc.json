@@ -1,11 +1,7 @@
 {
   "extends": [
     "eslint:recommended",
-    "plugin:compat/recommended",
-    "plugin:prettier/recommended"
-  ],
-  "plugins": [
-    "prettier"
+    "plugin:compat/recommended"
   ],
   "env": {
     "browser": true,
@@ -15,5 +11,8 @@
     "ecmaVersion": 2015,
     "sourceType": "module"
   },
-  "rules": {}
+  "rules": {
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"]
+  }
 }

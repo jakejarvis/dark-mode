@@ -1,6 +1,6 @@
 "use strict";
 
-const initializeDarkMode = function (options) {
+const init = function (options) {
   // { toggle, classes: { light, dark }, default, storageKey }
   options = options || {};
 
@@ -101,4 +101,4 @@ const isStorageAvailable = function () {
   }
 };
 
-module.exports.init = initializeDarkMode;
+export { init };

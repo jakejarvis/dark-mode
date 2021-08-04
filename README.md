@@ -1,10 +1,10 @@
-# 🌓 Dark mode switcheroo
+# 🌓 Dark Mode Switcheroo™
 
 [![CI](https://github.com/jakejarvis/dark-mode.js/actions/workflows/ci.yml/badge.svg)](https://github.com/jakejarvis/dark-mode.js/actions/workflows/ci.yml)
 [![npm (scoped)](https://img.shields.io/npm/v/@jakejarvis/dark-mode)](https://www.npmjs.com/package/@jakejarvis/dark-mode)
-[![GitHub](https://img.shields.io/github/license/jakejarvis/dark-mode?color=violet)](LICENSE)
+[![MIT License](https://img.shields.io/github/license/jakejarvis/dark-mode?color=violet)](LICENSE)
 
-Very simple CSS dark/light mode toggler with saved preference via local storage & dynamic OS setting detection. Zero dependencies and only ~700 bytes gzipped!
+Very simple CSS dark/light mode toggler with saved preference via local storage & dynamic OS setting detection. Zero dependencies and only ~600 bytes gzipped!
 
 - [View the example.](https://jakejarvis.github.io/dark-mode-example/)
 - [Read the blog post.](https://jarv.is/notes/dark-mode/)
@@ -14,7 +14,7 @@ Very simple CSS dark/light mode toggler with saved preference via local storage 
 
 ### Options
 
-`darkMode([...options])`
+`darkMode.init([...options])`
 
 - **toggle:** The clickable HTML element used to toggle between the two themes. (optional, default: `null`)
 - **classes:** An object containing the `<body>` class names for the light and dark themes. (optional, default: `{ light: "light", dark: "dark" }`)
@@ -26,7 +26,7 @@ Very simple CSS dark/light mode toggler with saved preference via local storage 
 ```html
 <button class="dark-mode-toggle">💡 Click to see the light... or not.</button>
 
-<script src="https://unpkg.com/@jakejarvis/dark-mode/dist/index.js"></script>
+<script src="https://unpkg.com/@jakejarvis/dark-mode/dist/dark-mode.min.js"></script>
 <script>
   window.darkMode.init({
     toggle: document.querySelector(".dark-mode-toggle"),
@@ -48,10 +48,26 @@ npm install @jakejarvis/dark-mode
 yarn add @jakejarvis/dark-mode
 ```
 
+#### Module via `import`
+
 ```js
-import darkMode from "@jakejarvis/dark-mode";
-// or:
-// const darkMode = require("@jakejarvis/dark-mode");
+import { init } from "@jakejarvis/dark-mode";
+
+init({
+  toggle: document.querySelector(".dark-mode-toggle"),
+  classes: {
+    light: "light",
+    dark: "dark",
+  },
+  default: "light",
+  storageKey: "dark_mode_pref",
+});
+```
+
+#### CommonJS via `require()`
+
+```js
+const darkMode = require("@jakejarvis/dark-mode");
 
 darkMode.init({
   toggle: document.querySelector(".dark-mode-toggle"),
@@ -68,6 +84,7 @@ darkMode.init({
 
 - [ ] Support more than two themes
 - [ ] Add callback function `onChange` (or `onToggle` etc.) passed in as an option
+- [ ] Better readme docs
 
 ## License
 
