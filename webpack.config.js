@@ -22,7 +22,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {
-          from: path.join(__dirname, "src/index.d.ts"),
+          from: path.join(__dirname, "src", "index.d.ts"),
           to: path.join(__dirname, "dist", "index.d.ts"),
         },
       ],

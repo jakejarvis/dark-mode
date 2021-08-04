@@ -1,8 +1,10 @@
-interface DarkModeOptions {
+export as namespace darkMode;
+
+export interface DarkModeOptions {
   toggle?: HTMLElement;
   classes?: { dark: string, light: string };
   default?: string;
   storageKey?: string;
 }
 
-export default function (options?: Partial<DarkModeOptions>): void;
+export function init(options?: Partial<DarkModeOptions>): void;

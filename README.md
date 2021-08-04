@@ -28,7 +28,7 @@ Very simple CSS dark/light mode toggler with saved preference via local storage 
 
 <script src="https://unpkg.com/@jakejarvis/dark-mode/dist/index.js"></script>
 <script>
-  window.darkMode({
+  window.darkMode.init({
     toggle: document.querySelector(".dark-mode-toggle"),
     classes: {
       light: "light",
@@ -53,7 +53,7 @@ import darkMode from "@jakejarvis/dark-mode";
 // or:
 // const darkMode = require("@jakejarvis/dark-mode");
 
-darkMode({
+darkMode.init({
   toggle: document.querySelector(".dark-mode-toggle"),
   classes: {
     light: "light",

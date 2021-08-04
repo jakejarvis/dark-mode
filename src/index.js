@@ -1,6 +1,6 @@
 const storageAvailable = require("storage-available");
 
-module.exports = function (options) {
+const initializeDarkMode = function (options) {
   // { toggle, classes: { light, dark }, default, storageKey }
   options = options || {};
 
@@ -24,12 +24,12 @@ module.exports = function (options) {
   let active = defaultTheme === dark;
 
   // receives a class name and switches <body> to it
-  const activateTheme = function (theme, save = false) {
+  const activateTheme = function (theme, remember = false) {
     document.body.classList.remove(dark, light);
     document.body.classList.add(theme);
     active = theme === dark;
 
-    if (storageEnabled && save) {
+    if (storageEnabled && remember) {
       localStorage.setItem(storageKey, theme);
     }
   };
@@ -53,20 +53,16 @@ module.exports = function (options) {
     }
 
     // real-time switching if supported by OS/browser
-    window
-      .matchMedia(prefers("dark"))
-      .addEventListener("change", function (e) {
-        if (e.matches) {
-          activateTheme(dark);
-        }
-      });
-    window
-      .matchMedia(prefers("light"))
-      .addEventListener("change", function (e) {
-        if (e.matches) {
-          activateTheme(light);
-        }
-      });
+    window.matchMedia(prefers("dark")).addEventListener("change", function (e) {
+      if (e.matches) {
+        activateTheme(dark);
+      }
+    });
+    window.matchMedia(prefers("light")).addEventListener("change", function (e) {
+      if (e.matches) {
+        activateTheme(light);
+      }
+    });
   } else if (pref === dark || pref === light) {
     // if user already explicitly toggled in the past, restore their preference
     activateTheme(pref);
@@ -91,3 +87,5 @@ module.exports = function (options) {
     });
   }
 };
+
+module.exports.init = initializeDarkMode;
