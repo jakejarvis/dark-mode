@@ -8,31 +8,35 @@
     "email": "jake@jarv.is",
     "url": "https://jarv.is/"
   },
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/jakejarvis/dark-mode.git"
   },
-  "exports": "./index.js",
-  "types": "./index.d.ts",
-  "node": "^12.20.0 || ^14.13.1 || >=16.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "lint": "eslint **/*.js"
+    "build": "webpack --mode production",
+    "lint": "eslint src/**/*.js",
+    "prepublishOnly": "run-s lint build"
   },
   "dependencies": {
     "storage-available": "^1.1.0"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^9.0.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-compat": "^3.11.1",
     "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.3.2"
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
+    "terser-webpack-plugin": "^5.1.4",
+    "webpack": "^5.48.0",
+    "webpack-cli": "^4.7.2"
   },
   "files": [
-    "index.js",
-    "index.d.ts",
-    "LICENSE"
+    "dist/index.js",
+    "dist/index.d.ts"
   ],
   "keywords": [
     "frontend",

@@ -1,6 +1,6 @@
 # 🌓 Dark mode switcheroo
 
-[![CI](https://github.com/jakejarvis/dark-mode.js/actions/workflows/ci.yml/badge.svg)](https://github.com/jakejarvis/dark-mode.js/actions/workflows/ci.yml) [![npm (scoped)](https://img.shields.io/npm/v/jakejarvis/dark-mode)](https://www.npmjs.com/package/@jakejarvis/dark-mode)
+[![CI](https://github.com/jakejarvis/dark-mode.js/actions/workflows/ci.yml/badge.svg)](https://github.com/jakejarvis/dark-mode.js/actions/workflows/ci.yml) [![npm (scoped)](https://img.shields.io/npm/v/@jakejarvis/dark-mode)](https://www.npmjs.com/package/@jakejarvis/dark-mode)
 
 Simple dark mode switching with saved preference via local storage & dynamic OS setting detection!
 
@@ -10,10 +10,46 @@ Simple dark mode switching with saved preference via local storage & dynamic OS 
 
 ## Usage
 
-### `darkMode([...options])`
+### Options
+
+`darkMode([...options])`
+
+- **toggle:** The clickable HTML element used to toggle between the two themes. (optional, default: `null`)
+- **classes:** An object containing the `<body>` class names for the light and dark themes. (optional, default: `{ light: "light", dark: "dark" }`)
+- **default:** The initial `<body>` class hard-coded into the HTML template. (optional, default: `"light"`)
+- **storageKey:** Name of the `localStorage` key holding the user's preference. (optional, default: `"dark_mode_pref"`)
+
+### Browser
+
+```html
+<button class="dark-mode-toggle">💡 Click to see the light... or not.</button>
+
+<script src="https://unpkg.com/@jakejarvis/dark-mode/dist/index.js"></script>
+<script>
+  window.darkMode({
+    toggle: document.querySelector(".dark-mode-toggle"),
+    classes: {
+      light: "light",
+      dark: "dark",
+    },
+    default: "light",
+    storageKey: "dark_mode_pref",
+  });
+</script>
+```
+
+### Node
+
+```bash
+npm install @jakejarvis/dark-mode
+# or...
+yarn add @jakejarvis/dark-mode
+```
 
 ```js
 import darkMode from "@jakejarvis/dark-mode";
+// or:
+// const darkMode = require("@jakejarvis/dark-mode");
 
 darkMode({
   toggle: document.querySelector(".dark-mode-toggle"),
@@ -25,15 +61,6 @@ darkMode({
   storageKey: "dark_mode_pref",
 });
 ```
-
-#### Options
-
-All optional.
-
-- **toggle:** The clickable HTML element used to toggle between the two themes. (optional)
-- **classes:** An object containing the `<body>` class names for the light and dark themes. (optional, default: `{ light: "light", dark: "dark" }`)
-- **default:** The initial `<body>` class hard-coded into the HTML template. (optional, default: `light`)
-- **storageKey:** Name of the `localStorage` key holding the user's preference. (optional, default: `dark_mode_pref`)
 
 ## License
 

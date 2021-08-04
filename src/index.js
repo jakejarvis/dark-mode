@@ -1,8 +1,6 @@
-/*! Dark mode switcheroo | MIT License | jrvs.io/darkmode */
+const storageAvailable = require("storage-available");
 
-import storageAvailable from "storage-available";
-
-export default function (options) {
+module.exports = function (options) {
   // { toggle, classes: { light, dark }, default, storageKey }
   options = options || {};
 
@@ -12,9 +10,8 @@ export default function (options) {
   // check for preset `dark_mode_pref` preference in local storage
   const storageKey = options.storageKey || "dark_mode_pref";
   const storageEnabled = storageAvailable("localStorage");
-  const pref = storageEnabled
-    ? localStorage.getItem(storageKey)
-    : null;
+  // eslint-disable-next-line prettier/prettier
+  const pref = storageEnabled ? localStorage.getItem(storageKey) : null;
 
   // change CSS via these <body> classes:
   const dark = options.classes ? options.classes.dark : "dark";
@@ -81,7 +78,7 @@ export default function (options) {
   // don't freak out if page happens not to have a toggle
   if (toggle !== null) {
     // toggle re-appears now that we know user has JS enabled
-    toggle.style.display = "block";
+    toggle.style.visibility = "visible";
 
     // handle toggle click
     toggle.addEventListener("click", function () {
@@ -93,4 +90,4 @@ export default function (options) {
       }
     });
   }
-}
+};

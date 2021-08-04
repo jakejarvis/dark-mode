@@ -1,10 +1,5 @@
-# Dependency directories
+.DS_Store
 node_modules/
-.npm/
-
-# Logs
-*.log
-npm-debug.log*
-
-# VSCode config
+dist/
+.npmrc
 .vscode/

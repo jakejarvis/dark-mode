@@ -13,6 +13,11 @@
 
   <p><a href="https://github.com/jakejarvis/dark-mode-example" target="_blank" rel="noopener">View the source code</a> or <a href="https://jarv.is/notes/dark-mode/" target="_blank" rel="noopener">read the post</a>.</p>
 
-  <script src="main.js"></script>>
+  <script src="../dist/index.js"></script>
+  <script>
+    window.darkMode({
+      toggle: document.querySelector(".dark-mode-toggle"),
+    });
+  </script>
 </body>
 </html>
