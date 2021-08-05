@@ -1,7 +1,6 @@
 "use strict";
 
 const init = function (options) {
-  // { toggle, classes: { light, dark }, default, storageKey }
   options = options || {};
 
   // use a specified element(s) to trigger swap when clicked

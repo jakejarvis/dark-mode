@@ -3,6 +3,6 @@ export function init(options?: {
   classes?: { dark: string, light: string };
   default?: string;
   storageKey?: string;
-  onInit?: (toggle?: HTMLElement) => void;
-  onChange?: (theme?: string, toggle?: HTMLElement) => void;
+  onInit?: (toggle?: HTMLElement) => unknown;
+  onChange?: (theme?: string, toggle?: HTMLElement) => unknown;
 }): void;
