@@ -16,17 +16,17 @@ Very simple CSS dark/light mode toggler with saved preference via local storage 
 
 `darkMode.init([...options])`
 
-- **toggle:** The clickable HTML element used to toggle between the two themes. (optional, default: `null`)
-- **classes:** An object containing the `<body>` class names for the light and dark themes. (optional, default: `{ light: "light", dark: "dark" }`)
-- **default:** The initial `<body>` class hard-coded into the HTML template. (optional, default: `"light"`)
-- **storageKey:** Name of the `localStorage` key holding the user's preference. (optional, default: `"dark_mode_pref"`)
-- **onInit(toggle?)** Callback function executed at the end of initialization. The toggle above is passed in if set. (optional, default: `null`)
-- **onChange(theme?, toggle?)** Callback function executed when theme is switched. The new theme and the toggle above (if set) are passed in. (optional, default: `null`)
+- **`toggle`**: The clickable [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) used to toggle between the two themes. (optional, default: `null`)
+- **`classes`**: An object containing the `<body>` class names for the light and dark themes. (optional, default: `{ light: "light", dark: "dark" }`)
+- **`default`**: The initial `<body>` class hard-coded into the HTML template. (optional, default: `"light"`)
+- **`storageKey`**: Name of the `localStorage` key holding the user's preference. (optional, default: `"dark_mode_pref"`)
+- **`onInit([toggle])`**: Callback function executed at the end of initialization. The toggle above is passed in if set. (optional, default: `null`)
+- **`onChange([theme, toggle])`**: Callback function executed when theme is switched. The new theme and the toggle above (if set) are passed in. (optional, default: `null`)
 
 ### Browser
 
 ```html
-<button class="dark-mode-toggle">💡 Click to see the light... or not.</button>
+<button class="dark-mode-toggle" style="visibility: hidden;">💡 Click to see the light... or not.</button>
 
 <script src="https://unpkg.com/@jakejarvis/dark-mode/dist/dark-mode.min.js"></script>
 <script>
@@ -38,6 +38,12 @@ Very simple CSS dark/light mode toggler with saved preference via local storage 
     },
     default: "light",
     storageKey: "dark_mode_pref",
+    onInit: function (toggle) {
+      toggle.style.visibility = "visible"; // toggle appears now that we know JS is enabled
+    },
+    onChange: function (theme, toggle) {
+      console.log("Theme is now " + theme);
+    },
   });
 </script>
 ```
@@ -56,13 +62,7 @@ yarn add @jakejarvis/dark-mode
 import { init } from "@jakejarvis/dark-mode";
 
 init({
-  toggle: document.querySelector(".dark-mode-toggle"),
-  classes: {
-    light: "light",
-    dark: "dark",
-  },
-  default: "light",
-  storageKey: "dark_mode_pref",
+  // ...same as browser.
 });
 ```
 
@@ -72,13 +72,7 @@ init({
 const darkMode = require("@jakejarvis/dark-mode");
 
 darkMode.init({
-  toggle: document.querySelector(".dark-mode-toggle"),
-  classes: {
-    light: "light",
-    dark: "dark",
-  },
-  default: "light",
-  storageKey: "dark_mode_pref",
+  // ...same as browser.
 });
 ```
 
