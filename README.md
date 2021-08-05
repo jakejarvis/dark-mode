@@ -6,7 +6,7 @@
 
 Very simple CSS dark/light mode toggler with saved preference via local storage & dynamic OS setting detection. Zero dependencies and only ~600 bytes gzipped!
 
-- [View the example.](https://jakejarvis.github.io/dark-mode-example/)
+- [View the example.](https://jakejarvis.github.io/dark-mode/)
 - [Read the blog post.](https://jarv.is/notes/dark-mode/)
 - [See it in action.](https://jarv.is/)
 
