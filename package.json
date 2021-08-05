@@ -19,7 +19,7 @@
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint src/**/*.js",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "rm -rf dist && yarn build"
   },
   "dependencies": {},
   "devDependencies": {
@@ -30,7 +30,7 @@
     "@rollup/plugin-node-resolve": "^13.0.4",
     "eslint": "^7.32.0",
     "eslint-plugin-compat": "^3.11.1",
-    "rollup": "^2.55.1",
+    "rollup": "^2.56.0",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-filesize": "^9.1.1",
     "rollup-plugin-terser": "^7.0.2"

@@ -31,6 +31,11 @@ const init = function (options) {
     if (storageAvailable && !!remember) {
       localStorage.setItem(storageKey, theme);
     }
+
+    // optional onChange callback function passed as option
+    if (typeof options.onChange === "function") {
+      options.onChange(theme, toggle);
+    }
   };
 
   // user has never clicked the button, so go by their OS preference until/if they do so
@@ -72,9 +77,6 @@ const init = function (options) {
 
   // don't freak out if page happens not to have a toggle
   if (toggle !== null) {
-    // toggle re-appears now that we know user has JS enabled
-    toggle.style.visibility = "visible";
-
     // handle toggle click
     toggle.addEventListener("click", function () {
       // switch to the opposite theme & save preference in local storage
@@ -84,6 +86,11 @@ const init = function (options) {
         activateTheme(dark, true);
       }
     });
+  }
+
+  // optional onInit callback function passed as option
+  if (typeof options.onInit === "function") {
+    options.onInit(toggle);
   }
 };
 

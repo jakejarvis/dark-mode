@@ -20,6 +20,8 @@ Very simple CSS dark/light mode toggler with saved preference via local storage 
 - **classes:** An object containing the `<body>` class names for the light and dark themes. (optional, default: `{ light: "light", dark: "dark" }`)
 - **default:** The initial `<body>` class hard-coded into the HTML template. (optional, default: `"light"`)
 - **storageKey:** Name of the `localStorage` key holding the user's preference. (optional, default: `"dark_mode_pref"`)
+- **onInit(toggle?)** Callback function executed at the end of initialization. The toggle above is passed in if set. (optional, default: `null`)
+- **onChange(theme?, toggle?)** Callback function executed when theme is switched. The new theme and the toggle above (if set) are passed in. (optional, default: `null`)
 
 ### Browser
 
@@ -83,8 +85,8 @@ darkMode.init({
 ## To-Do
 
 - [ ] Support more than two themes
-- [ ] Add callback function `onChange` (or `onToggle` etc.) passed in as an option
 - [ ] Better readme docs
+- [x] Add callback function `onChange` (or `onToggle` etc.) passed in as an option
 
 ## License
 
