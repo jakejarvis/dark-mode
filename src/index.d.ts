@@ -1,8 +1,6 @@
-interface DarkModeOptions {
+export function init(options?: {
   toggle?: HTMLElement;
   classes?: { dark: string, light: string };
   default?: string;
   storageKey?: string;
-}
-
-export function init(options?: DarkModeOptions): void;
+}): void;
