@@ -1,6 +1,6 @@
 {
   "name": "@jakejarvis/dark-mode",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "🌓 Simple CSS theme switching with saved preferences and automatic OS setting detection",
   "license": "MIT",
   "author": {
