@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+  npm:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 14
+        registry-url: https://registry.npmjs.org/
+    - env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: |
+        yarn install --frozen-lockfile
+        yarn publish
+
+  gpr:
+    name: Publish to GitHub
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 14
+        registry-url: https://npm.pkg.github.com/
+        scope: '@jakejarvis'
+    - env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        yarn install --frozen-lockfile
+        yarn publish
