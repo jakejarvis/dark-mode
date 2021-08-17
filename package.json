@@ -13,6 +13,7 @@
     "url": "https://github.com/jakejarvis/dark-mode.git"
   },
   "type": "module",
+  "sideEffects": false,
   "files": [
     "dist"
   ],
