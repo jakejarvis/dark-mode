@@ -1,5 +1,3 @@
-"use strict";
-
 const init = function (options) {
   options = options || {};
 
@@ -8,8 +6,7 @@ const init = function (options) {
 
   // check for preset `dark_mode_pref` preference in local storage
   const storageKey = options.storageKey || "dark_mode_pref";
-  const storageAvailable = isStorageAvailable();
-  const pref = storageAvailable ? localStorage.getItem(storageKey) : null;
+  const pref = localStorage.getItem(storageKey);
 
   // change CSS via these <body> classes:
   const dark = options.classes ? options.classes.dark : "dark";
@@ -27,7 +24,7 @@ const init = function (options) {
     document.body.classList.add(theme);
     active = theme === dark;
 
-    if (storageAvailable && !!remember) {
+    if (remember) {
       localStorage.setItem(storageKey, theme);
     }
 
@@ -90,20 +87,6 @@ const init = function (options) {
   // optional onInit callback function passed as option
   if (typeof options.onInit === "function") {
     options.onInit(toggle);
-  }
-};
-
-// recommended method (by MDN) to detect localStorage availability:
-// https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#feature-detecting_localstorage
-const isStorageAvailable = function () {
-  try {
-    var storage = window["localStorage"];
-    var x = "__storage_test__";
-    storage.setItem(x, x);
-    storage.removeItem(x);
-    return true;
-  } catch (e) {
-    return false;
   }
 };
 

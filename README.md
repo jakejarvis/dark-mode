@@ -4,7 +4,7 @@
 [![npm (scoped)](https://img.shields.io/npm/v/@jakejarvis/dark-mode)](https://www.npmjs.com/package/@jakejarvis/dark-mode)
 [![MIT License](https://img.shields.io/github/license/jakejarvis/dark-mode?color=violet)](LICENSE)
 
-Very simple CSS dark/light mode toggler with saved preference via local storage & dynamic OS setting detection. Zero dependencies and [only ~600 bytes gzipped!](https://bundlephobia.com/package/@jakejarvis/dark-mode)
+Very simple CSS dark/light mode toggler with saved preference via local storage & dynamic OS setting detection. Zero dependencies and [only ~500 bytes gzipped!](https://bundlephobia.com/package/@jakejarvis/dark-mode)
 
 - [View the example.](https://jakejarvis.github.io/dark-mode/)
 - [Read the blog post.](https://jarv.is/notes/dark-mode/)
