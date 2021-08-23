@@ -1,3 +1,4 @@
+import pkg from "./package.json";
 import resolve from "@rollup/plugin-node-resolve";
 import { babel } from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
@@ -5,7 +6,7 @@ import eslint from "@rollup/plugin-eslint";
 import filesize from "rollup-plugin-filesize";
 import copy from "rollup-plugin-copy";
 
-const banner = "/*! Dark Mode Switcheroo | MIT License | jrvs.io/darkmode */";
+const banner = `/*! Dark Mode Switcheroo v${pkg.version} | MIT License | jrvs.io/darkmode */`;
 
 export default [
   {
