@@ -1,5 +1,5 @@
 {
-  "name": "@jakejarvis/dark-mode",
+  "name": "dark-mode-switcheroo",
   "version": "0.7.2",
   "description": "🌓 Simple CSS theme switching with saved preferences and automatic OS setting detection",
   "license": "MIT",
@@ -34,7 +34,7 @@
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.15.5",
-    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
     "@jakejarvis/eslint-config": "*",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-eslint": "^8.0.1",

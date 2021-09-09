@@ -1,10 +1,10 @@
 # 🌓 Dark Mode Switcheroo™
 
-[![CI](https://github.com/jakejarvis/dark-mode.js/actions/workflows/ci.yml/badge.svg)](https://github.com/jakejarvis/dark-mode.js/actions/workflows/ci.yml)
-[![npm (scoped)](https://img.shields.io/npm/v/@jakejarvis/dark-mode)](https://www.npmjs.com/package/@jakejarvis/dark-mode)
+[![CI](https://github.com/jakejarvis/dark-mode/actions/workflows/ci.yml/badge.svg)](https://github.com/jakejarvis/dark-mode/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/dark-mode-switcheroo?logo=npm)](https://www.npmjs.com/package/dark-mode-switcheroo)
 [![MIT License](https://img.shields.io/github/license/jakejarvis/dark-mode?color=violet)](LICENSE)
 
-Very simple CSS dark/light mode toggler with saved preference via local storage & dynamic OS setting detection. Zero dependencies and [only ~500 bytes gzipped!](https://bundlephobia.com/package/@jakejarvis/dark-mode)
+Very simple CSS dark/light mode toggler with saved preference via local storage & dynamic OS setting detection. Zero dependencies and [only ~500 bytes gzipped!](https://bundlephobia.com/package/dark-mode-switcheroo)
 
 - [View the example.](https://jakejarvis.github.io/dark-mode/)
 - [Read the blog post.](https://jarv.is/notes/dark-mode/)
@@ -28,7 +28,7 @@ Very simple CSS dark/light mode toggler with saved preference via local storage 
 ```html
 <button class="dark-mode-toggle" style="visibility: hidden;">💡 Click to see the light... or not.</button>
 
-<script src="https://unpkg.com/@jakejarvis/dark-mode/dist/dark-mode.min.js"></script>
+<script src="https://unpkg.com/dark-mode-switcheroo/dist/dark-mode.min.js"></script>
 <script>
   window.darkMode.init({
     toggle: document.querySelector(".dark-mode-toggle"),
@@ -51,15 +51,15 @@ Very simple CSS dark/light mode toggler with saved preference via local storage 
 ### Node
 
 ```bash
-npm install @jakejarvis/dark-mode
+npm install dark-mode-switcheroo
 # or...
-yarn add @jakejarvis/dark-mode
+yarn add dark-mode-switcheroo
 ```
 
 #### Module via `import`
 
 ```js
-import { init } from "@jakejarvis/dark-mode";
+import { init } from "dark-mode-switcheroo";
 
 init({
   // ...same as browser.
@@ -69,7 +69,7 @@ init({
 #### CommonJS via `require()`
 
 ```js
-const darkMode = require("@jakejarvis/dark-mode");
+const darkMode = require("dark-mode-switcheroo");
 
 darkMode.init({
   // ...same as browser.
