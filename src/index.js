@@ -22,7 +22,7 @@ const init = function (options) {
   const activateTheme = function (theme, remember) {
     // optional onChange callback function passed as option
     if (typeof options.onChange === "function") {
-      options.onChange(theme, toggle || null);
+      options.onChange(theme, toggle);
     }
 
     document.body.classList.remove(dark, light);
@@ -36,7 +36,7 @@ const init = function (options) {
 
   // optional onInit callback function passed as option
   if (typeof options.onInit === "function") {
-    options.onInit(toggle || null);
+    options.onInit(toggle);
   }
 
   // user has never clicked the button, so go by their OS preference until/if they do so
