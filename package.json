@@ -1,6 +1,6 @@
 {
   "name": "dark-mode-switcheroo",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "🌓 Simple CSS theme switching with saved preferences and automatic OS setting detection",
   "license": "MIT",
   "author": {
