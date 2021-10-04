@@ -20,6 +20,11 @@ const init = function (options) {
 
   // receives a class name and switches <body> to it
   const activateTheme = function (theme, remember) {
+    // optional onChange callback function passed as option
+    if (typeof options.onChange === "function") {
+      options.onChange(theme, toggle || null);
+    }
+
     document.body.classList.remove(dark, light);
     document.body.classList.add(theme);
     active = theme === dark;
@@ -27,12 +32,12 @@ const init = function (options) {
     if (remember) {
       localStorage.setItem(storageKey, theme);
     }
-
-    // optional onChange callback function passed as option
-    if (typeof options.onChange === "function") {
-      options.onChange(theme, toggle);
-    }
   };
+
+  // optional onInit callback function passed as option
+  if (typeof options.onInit === "function") {
+    options.onInit(toggle || null);
+  }
 
   // user has never clicked the button, so go by their OS preference until/if they do so
   if (!pref) {
@@ -75,6 +80,11 @@ const init = function (options) {
   if (toggle !== null) {
     // handle toggle click
     toggle.addEventListener("click", function () {
+      // optional onUserToggle callback function passed as option
+      if (typeof options.onUserToggle === "function") {
+        options.onUserToggle(toggle);
+      }
+
       // switch to the opposite theme & save preference in local storage
       if (active) {
         activateTheme(light, true);
@@ -82,11 +92,6 @@ const init = function (options) {
         activateTheme(dark, true);
       }
     });
-  }
-
-  // optional onInit callback function passed as option
-  if (typeof options.onInit === "function") {
-    options.onInit(toggle);
   }
 };
 

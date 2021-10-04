@@ -21,6 +21,7 @@ Very simple CSS dark/light mode toggler with saved preference via local storage 
 - **`default`**: The initial `<body>` class hard-coded into the HTML template. (optional, default: `"light"`)
 - **`storageKey`**: Name of the `localStorage` key holding the user's preference. (optional, default: `"dark_mode_pref"`)
 - **`onInit([toggle])`**: Callback function executed at the end of initialization. The toggle above is passed in if set. (optional, default: `null`)
+- **`onUserToggle([toggle])`**: Callback function executed when a user manually interacts with the toggle button. The toggle above (if set) is passed in. (optional, default: `null`)
 - **`onChange([theme, toggle])`**: Callback function executed when theme is switched. The new theme and the toggle above (if set) are passed in. (optional, default: `null`)
 
 ### Browser
