@@ -1,30 +1,34 @@
 import pkg from "./package.json";
 import resolve from "@rollup/plugin-node-resolve";
+import externals from "rollup-plugin-node-externals";
 import { babel } from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
-import eslint from "@rollup/plugin-eslint";
 import filesize from "rollup-plugin-filesize";
 import copy from "rollup-plugin-copy";
 import del from "rollup-plugin-delete";
+import commonjs from "@rollup/plugin-commonjs";
+import eslint from "@rollup/plugin-eslint";
 
-const banner = `/*! Dark Mode Switcheroo v${pkg.version} | MIT License | jrvs.io/darkmode */`;
+const exportName = "darkMode";
+const input = "src/index.js";
+const banner = `/*! ${pkg.name} v${pkg.version} | ${pkg.license} License | ${pkg.homepage} */`;
 
 export default [
   {
     // universal (browser and node)
-    input: "src/index.js",
+    input,
     output: [
       {
-        name: "darkMode",
-        file: "dist/dark-mode.js",
+        name: exportName,
+        file: pkg.exports.browser.replace(".min.js", ".js"), // unminified (.js)
         format: "umd",
         exports: "named",
         esModule: false,
         banner: banner,
       },
       {
-        name: "darkMode",
-        file: "dist/dark-mode.min.js",
+        name: exportName,
+        file: pkg.exports.browser, // minified (.min.js)
         format: "umd",
         exports: "named",
         esModule: false,
@@ -43,13 +47,14 @@ export default [
         // clearly this isn't really typescript, so we need to manually copy the type definition file
         targets: [
           {
-            src: "src/index.d.ts",
+            src: input.replace(".js", ".d.ts"),
             dest: "dist",
-            rename: "dark-mode.d.ts",
+            rename: pkg.types.replace("./dist/", ""),
           },
         ],
       }),
       resolve(),
+      commonjs(),
       eslint(),
       babel({
         babelHelpers: "bundled",
@@ -61,24 +66,25 @@ export default [
   },
   {
     // modules
-    input: "src/index.js",
+    input,
     output: [
       {
         // ES6 module (import)
-        file: "dist/dark-mode.esm.js",
+        file: pkg.exports.import,
         format: "esm",
         exports: "named",
         banner: banner,
       },
       {
         // commonjs (require)
-        file: "dist/dark-mode.cjs.js",
+        file: pkg.exports.require,
         format: "cjs",
         exports: "named",
         banner: banner,
       },
     ],
     plugins: [
+      externals({ deps: true }),
       resolve(),
       babel({
         babelHelpers: "bundled",

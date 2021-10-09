@@ -2,9 +2,9 @@
   "extends": [
     "@jakejarvis/eslint-config"
   ],
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": 2015,
-    "sourceType": "module"
+    "requireConfigFile": false
   },
   "env": {
     "browser": true,
@@ -12,7 +12,6 @@
   },
   "ignorePatterns": [
     "*.d.ts",
-    "dist/**",
-    "rollup.config.js"
+    "dist/**"
   ]
 }

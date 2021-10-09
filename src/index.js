@@ -1,4 +1,4 @@
-const init = function (options) {
+export function init(options) {
   options = options || {};
 
   // use a specified element(s) to trigger swap when clicked
@@ -93,6 +93,4 @@ const init = function (options) {
       }
     });
   }
-};
-
-export { init };
+}
