@@ -1,6 +1,8 @@
 {
   "extends": [
-    "@jakejarvis/eslint-config"
+    "@jakejarvis/eslint-config",
+    "plugin:compat/recommended",
+    "plugin:import/recommended"
   ],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
