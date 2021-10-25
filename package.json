@@ -43,7 +43,7 @@
     "@rollup/plugin-eslint": "^8.0.1",
     "@rollup/plugin-node-resolve": "^13.0.5",
     "builtin-modules": "^3.2.0",
-    "eslint": "^8.0.0",
+    "eslint": "^8.1.0",
     "eslint-plugin-compat": "^3.13.0",
     "eslint-plugin-import": "^2.25.2",
     "rollup": "^2.58.0",
