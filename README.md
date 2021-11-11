@@ -1,8 +1,7 @@
 # 🌓 Dark Mode Switcheroo™
 
 [![CI](https://github.com/jakejarvis/dark-mode/actions/workflows/ci.yml/badge.svg)](https://github.com/jakejarvis/dark-mode/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/dark-mode-switcheroo?logo=npm)](https://www.npmjs.com/package/dark-mode-switcheroo)
-[![MIT License](https://img.shields.io/github/license/jakejarvis/dark-mode?color=violet)](LICENSE)
+[![npm](https://img.shields.io/npm/v/dark-mode-switcheroo)](https://www.npmjs.com/package/dark-mode-switcheroo)
 
 Very simple CSS dark/light mode toggler with saved preference via local storage & dynamic OS setting detection. Zero dependencies and [only ~500 bytes gzipped!](https://bundlephobia.com/package/dark-mode-switcheroo)
 
