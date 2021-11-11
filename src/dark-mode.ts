@@ -1,4 +1,12 @@
-export function init(options) {
+export function init(options: {
+  toggle?: Element | null;
+  classes?: { dark: string, light: string };
+  default?: string;
+  storageKey?: string;
+  onInit?: (toggle?: Element | null) => unknown;
+  onUserToggle?: (toggle?: Element | null) => unknown;
+  onChange?: (theme: string, toggle?: Element | null) => unknown;
+}): void {
   options = options || {};
 
   // use a specified element(s) to trigger swap when clicked
@@ -19,7 +27,7 @@ export function init(options) {
   let active = defaultTheme === dark;
 
   // receives a class name and switches <body> to it
-  const activateTheme = function (theme, remember) {
+  const activateTheme = function (theme: string, remember?: boolean) {
     // optional onChange callback function passed as option
     if (typeof options.onChange === "function") {
       options.onChange(theme, toggle);
@@ -42,7 +50,7 @@ export function init(options) {
   // user has never clicked the button, so go by their OS preference until/if they do so
   if (!pref) {
     // returns media query selector syntax
-    const prefers = function (colorScheme) {
+    const prefers = function (colorScheme: "dark" | "light") {
       // https://drafts.csswg.org/mediaqueries-5/#prefers-color-scheme
       return `(prefers-color-scheme: ${colorScheme})`;
     };

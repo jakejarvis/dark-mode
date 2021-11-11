@@ -17,41 +17,29 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/dark-mode.cjs.js",
+  "source": "./src/dark-mode.ts",
+  "main": "./dist/dark-mode.cjs",
   "module": "./dist/dark-mode.esm.js",
   "unpkg": "./dist/dark-mode.min.js",
-  "types": "./dist/dark-mode.d.ts",
   "exports": {
-    "require": "./dist/dark-mode.cjs.js",
+    "require": "./dist/dark-mode.cjs",
     "import": "./dist/dark-mode.esm.js",
     "browser": "./dist/dark-mode.min.js"
   },
+  "types": "./dist/dark-mode.d.ts",
   "scripts": {
-    "build": "rollup -c",
-    "watch": "rollup -c -w",
+    "build": "microbundle --format cjs,esm,umd --name 'darkMode'",
     "lint": "eslint .",
     "prepublishOnly": "yarn build"
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/eslint-parser": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
     "@jakejarvis/eslint-config": "*",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^21.0.0",
-    "@rollup/plugin-eslint": "^8.0.1",
-    "@rollup/plugin-node-resolve": "^13.0.5",
-    "builtin-modules": "^3.2.0",
-    "eslint": "^8.0.0",
-    "eslint-plugin-compat": "^3.13.0",
-    "eslint-plugin-import": "^2.25.2",
-    "rollup": "^2.58.0",
-    "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-delete": "^2.0.0",
-    "rollup-plugin-filesize": "^9.1.1",
-    "rollup-plugin-node-externals": "^2.2.0",
-    "rollup-plugin-terser": "^7.0.2"
+    "@typescript-eslint/eslint-plugin": "^5.3.1",
+    "@typescript-eslint/parser": "^5.3.1",
+    "eslint": "^8.2.0",
+    "microbundle": "^0.14.1",
+    "typescript": "^4.4.4"
   },
   "keywords": [
     "front-end",

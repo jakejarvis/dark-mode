@@ -1,19 +1,16 @@
 {
   "extends": [
     "@jakejarvis/eslint-config",
-    "plugin:compat/recommended",
-    "plugin:import/recommended"
+    "plugin:@typescript-eslint/recommended"
   ],
-  "parser": "@babel/eslint-parser",
-  "parserOptions": {
-    "requireConfigFile": false
-  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "parser": "@typescript-eslint/parser",
   "env": {
-    "browser": true,
-    "node": true
+    "browser": true
   },
   "ignorePatterns": [
-    "*.d.ts",
     "dist/**"
   ]
 }
